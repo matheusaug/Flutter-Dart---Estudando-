@@ -1,0 +1,70 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var nome  = Text('Aplicativo');
+    var appBar = AppBar(title: nome);
+
+  
+    // icone
+    var icon  = Icon(Icons.star, color: Colors.blue,size:42.0);
+    // estilo do icone 
+    var textharryStyle = TextStyle(
+      fontWeight: FontWeight.bold
+    );
+
+    // nome Harry Potter 
+    var textharry = Text('Harry Potter', style: textharryStyle,);
+
+    //Estilo Harry
+    var textLindoStyle = TextStyle(
+    color: Colors.grey[700]
+    );
+    var textLindo = Text('Lindo',style: textLindoStyle,);
+
+    //coluna icone
+    var colunaIcon = Column(children:[icon],
+    mainAxisAlignment: MainAxisAlignment.start,);
+
+    //linha Texto
+    var colunaTexto = Column(children:[textharry,textLindo],
+    crossAxisAlignment: CrossAxisAlignment.start,);
+
+    var linha = Row(children:[colunaIcon,colunaTexto],);
+
+   
+    var colunatextoelinha = Column(children: [linha],);
+
+    var conteinerLinha = Container(child: colunatextoelinha,
+    margin: EdgeInsets.all(8.0),);
+
+      var fab = FloatingActionButton(
+      tooltip: "Adicionar",
+      child: Icon(Icons.add), //icone do FAB
+      elevation: 6, // Elevação da Sombra do FAB
+      onPressed: () {
+        Navigator.of(context).pushNamed('/cadastro'); // Navegação entre paginas
+      },
+      // onPressed: () => print('Botão Adicionar pressionado.')
+    );
+
+    
+
+    
+    //scaffold
+
+    var scaffold = Scaffold(body: conteinerLinha, appBar: appBar, floatingActionButton: fab,); 
+    // FloatingActionButton: Fab 'Retorna o método acima'
+    
+    //MaterialApp
+
+    var materialApp = MaterialApp(home: scaffold);
+   
+    return materialApp;
+  }
+}
+
+Cristiano Lothbrok

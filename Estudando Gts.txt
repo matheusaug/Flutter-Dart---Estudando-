@@ -1,0 +1,115 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var nomesEstilo = TextStyle(
+      color: Colors.red[100],
+      fontWeight: FontWeight.bold
+    );
+    var nome = Text('Gatas Virtuais', style: nomesEstilo,);
+    var appBar = AppBar(title: nome);
+
+    //imagem
+    var imagem = Image.network('https://www.gatavirtual.com/lib/img/gatas/kiara_3475/kiara_01.jpg', width: 900, height: 300,);
+    
+    //adicionar
+    var styleAdicionar = TextStyle(
+      color: Colors.blue,
+      fontWeight: FontWeight.bold,
+      fontSize: 15.0,
+    );
+    var textoAdicionar = Text('Adicionar', style: styleAdicionar,);
+    var iconeAdcionar = Icon(Icons.add);
+    var colunaAdicionar = Column(children:[textoAdicionar,iconeAdcionar]);
+
+    //mensagem
+    var styleMensagem = TextStyle(
+      color: Colors.orange,
+      fontWeight: FontWeight.bold,
+      fontSize: 15.0
+    );
+    var textoMensagem = Text('Mensagem' , style: styleMensagem,);
+    var iconeMensagem = Icon(Icons.email, color: Colors.orange[600],);
+
+    var colunaMensagem = Column(children:[textoMensagem,iconeMensagem],);
+
+    //bloquear
+
+    var styleChat = TextStyle(
+      color: Colors.red,
+      fontWeight: FontWeight.bold,
+      fontSize: 15.0
+    );
+    var textoChat = Text('Chat' , style: styleChat,);
+    var iconeChat = Icon(Icons.chat, color: Colors.red[600],);
+
+    var colunaBloquear = Column(children:[textoChat,iconeChat],);
+
+    var linha = Row(children:[colunaAdicionar,colunaMensagem,colunaBloquear],
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,);
+//nome
+        var styloNome = TextStyle(
+          fontWeight: FontWeight.bold,
+          color: Colors.red[900]
+        );
+        
+        var descricaoNome = Text('Nome: ', style: styloNome, );
+        var descricaoTextonome = Text('Juliana Fernanda Menendes');
+
+var acompanhantestyle = TextStyle(
+  fontSize: 15.0,
+  color: Colors.green,
+  fontWeight: FontWeight.bold
+);
+var acompanhante = Text('ACOMPANHANTE DE LUXO', style: acompanhantestyle,);
+//idade
+var styloAno = TextStyle(
+          fontWeight: FontWeight.bold,
+          color: Colors.red[900]
+        );
+        
+        var descricaoAno = Text('Idade: ', style: styloAno, );
+        var descricaoTextoAno = Text('25 anos',);
+var stylopreco = TextStyle(
+          fontWeight: FontWeight.bold,
+          color: Colors.red[900]
+        );
+        
+        var descricaopreco = Text('preço: ', style: stylopreco, );
+        var descricaoTextopreco = Text('250 Reais');
+
+        var colunanomes = Column(children: [  descricaoNome, 
+    descricaoTextonome,
+    descricaoAno,
+    descricaoTextoAno,
+    descricaopreco,
+    descricaoTextopreco],);
+        
+        var container  = Container(child: colunanomes,
+         margin: EdgeInsets.all(1.0),
+         padding: EdgeInsets.only(top: 15.0),);
+         
+   
+    var coluna = Column(children:[imagem,
+    linha,
+    acompanhante,
+    container
+    ]);
+
+
+  
+    //scaffold
+    var scaffold = Scaffold(body: coluna, appBar: appBar,);
+
+    //material app
+
+    var materialApp = MaterialApp(home: scaffold);
+    return materialApp;
+  }
+  
+  
+  
+}

@@ -1,0 +1,132 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    
+    var nome = Text('Aplicativo Tony');
+    var appBar = AppBar(title: nome);
+
+    var imagem = Image.network('https://observatoriodocinema.bol.uol.com.br/wp-content/uploads/2019/05/cropped-tony-stark-header-2.jpg');
+     var nometonystyle = TextStyle(
+      color: Colors.grey[700],
+      fontWeight: FontWeight.w700,
+      fontSize: 15.0
+
+    );
+     
+    //criando container e configurando largura 
+    //padding e marging 
+    var nometony = Text('TONY STARK', style: nometonystyle);
+    
+    var containerTony = Container(child: nometony,
+    margin: EdgeInsets.all(10.0),
+    padding: EdgeInsets.only(top: 5.0),
+    );
+     
+    var nomeFunfadorEstilo = TextStyle(
+    color: Colors.brown,
+    fontWeight: FontWeight.bold,
+    fontSize: 11.0
+    );
+    var nomeFundador = Text('COOFUNDADOR DA EMPRESA STARKS', 
+    style: nomeFunfadorEstilo,
+    textAlign: TextAlign.left,
+    );
+     
+
+
+    //1º coluna ligar
+    var iconligar = Icon(Icons.call, color: Colors.green[700],);
+    var nometextoLigar = TextStyle(
+      fontWeight: FontWeight.bold,
+     color: Colors.green
+    );
+    var textLigar = Text('Ligar', style: nometextoLigar,);
+    var colunaLigar =  Column(children:[iconligar,textLigar]);  
+
+    //2º Coluna email
+
+    
+    var iconEmail = Icon(Icons.email, color: Colors.blue[700]);
+    var nometextoEmail = TextStyle(
+     fontWeight: FontWeight.bold,
+     color: Colors.blue
+    );
+    var textEmail = Text('Email', style: nometextoEmail,);
+    var colunaEmail =  Column(children:[iconEmail,textEmail]);  
+ 
+   //3º coluna Bloquear
+
+   
+    var iconBloquear = Icon(Icons.block, color: Colors.red[700],);
+    var nometexto = TextStyle(
+      fontWeight: FontWeight.bold,
+     color: Colors.red
+    );
+    var textBloquear = Text('Bloquear', style: nometexto,);
+    var colunaBloquear =  Column(children:[iconBloquear,textBloquear]);  
+
+    var linha = Row(children:[colunaLigar,colunaEmail,colunaBloquear],
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly);
+
+    //margem entre os icones top e down 
+    var containerlinha = Container(child: linha, 
+    margin: EdgeInsets.only(top: 0.0),
+    padding: EdgeInsets.all(1.0),);
+
+    //sempre quando colocar uma cor ou estilo, sempre colocar primeiro que o texto
+    var informacoesStyle = TextStyle(
+      color: Colors.pink,
+      fontWeight: FontWeight.bold
+
+    );
+
+    
+    var informacoes = Text('Homem de Ferro (Iron Man, em inglês) é um personagem fictício dos quadrinhos publicados pela Marvel Comics. Sua identidade verdadeira é a do empresário e bilionário Tony Stark, que usa armaduras de alta tecnologia no combate ao crime.',
+    textAlign:TextAlign.start,
+    style: informacoesStyle
+    );
+
+    var informacoesStyle2 = TextStyle(
+    color: Colors.orange,
+    fontWeight: FontWeight.bold 
+    );
+
+
+    var informacoes2 = Text('Foi criado em 1963 pelo escritor Stan Lee, o roteirista Larry Lieber, e os desenhistas Jack Kirby e Don Heck. O objetivo de seu criador, Stan Lee, era aceitar o desafio de fazer um personagem ser odiado e depois amado pelo público, assim, criou um dos super heróis mais marcantes de todos os tempos.',
+    textAlign: TextAlign.start,
+    style: informacoesStyle2,);
+    
+    var  containerEstilo = Column(children:[informacoes,informacoes2],);
+
+
+   var outrasinformacoesStyle = TextStyle(
+    color: Colors.red[700],
+    fontWeight: FontWeight.bold,
+    fontSize: 24.0, //tamanho da fonte
+    );
+    var descricao = Text('OUTRAS INFORMAÇÕES', 
+    style: outrasinformacoesStyle,
+    textAlign: TextAlign.right,
+    );
+
+    var coluna = Column(children:[imagem,containerTony,nomeFundador,containerlinha,containerEstilo, descricao],
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,);
+
+    
+    
+    //Scaffold
+    var scaffold = Scaffold(body: coluna, appBar: appBar);
+
+
+   //Material App
+
+      var app = MaterialApp(home: scaffold);
+    return app;
+  }
+  
+  
+}

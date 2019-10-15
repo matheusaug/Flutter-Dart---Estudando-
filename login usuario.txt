@@ -1,0 +1,129 @@
+import 'package:flutter/material.dart';
+
+
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+
+    var nome  = Text('AgriApp',);
+    var appBar = AppBar(title: nome,);
+
+  
+
+    var imagem = Image.asset('imagem/ex3.png', 
+    height: 180.0, width: 180.0,);
+
+   
+   var cadastramentoStyle = TextStyle(
+    color: Colors.green[700],
+    fontWeight: FontWeight.bold,
+    fontSize: 25.0
+   );
+   var cadastramento = Text('Login do Usuario', style: cadastramentoStyle,); 
+
+   //Email
+   var inputEmail = TextFormField(
+      decoration: InputDecoration(
+        labelText: "E-mail",
+         hintText: 'Digite seu e-mail',
+      ),
+      keyboardType: TextInputType.emailAddress,
+    );
+
+    var containerEmail = Container(child: inputEmail,
+    margin: EdgeInsets.all(10.0),
+    );
+
+    
+
+    //senha
+
+    var inputSenha = TextFormField(
+     decoration: InputDecoration(
+       labelText: "Senha",
+       hintText: 'Digite Sua Senha'
+
+     ),
+     keyboardType: TextInputType.emailAddress
+    );
+
+
+    var containerSenha = Container(child: inputSenha,
+    margin: EdgeInsets.all(8.0),
+    );
+      //botão Salvar
+      var buttonSalvar = RaisedButton(
+      onPressed: () {},
+      child: Text("Entrar"),
+      textColor: Colors.white,
+      color: Colors.green,
+      padding: EdgeInsets.all(10.0),
+    );
+
+    var sizedBox = SizedBox(
+      // width: MediaQuery.of(context).size.width,
+      width: double.infinity,
+      child: buttonSalvar
+    );
+
+    //botão Cadastrar
+     var buttonCadastrar = RaisedButton(
+      onPressed: () {},
+      child: Text("Cadastrar"), 
+      textColor: Colors.white,
+      color: Colors.green[900],
+      padding: EdgeInsets.all(10.0),
+    );
+
+    var sizedBox2 = SizedBox(
+      // width: MediaQuery.of(context).size.width,
+      width: double.infinity,
+      child: buttonCadastrar
+    );
+
+    var esqueciMinhaSenhaStyle = TextStyle(
+      color:Colors.green[800],
+      fontWeight: FontWeight.bold,
+      fontSize: 15.0,
+      
+    );
+    var esqueciMinhaSenha = Text('Esqueci minha Senha', style: esqueciMinhaSenhaStyle, );
+
+    var esqueciminhasenhaContainer = Container(child: esqueciMinhaSenha,
+    margin: EdgeInsets.only(top: 8.0),
+    );
+
+
+
+   //body 
+   var linha = Row(children:[imagem], 
+   mainAxisAlignment: MainAxisAlignment.center,
+   );
+
+   var coluna = Column(children: [
+   cadastramento,
+   containerEmail, 
+   containerSenha, 
+   sizedBox, 
+   sizedBox2,
+   esqueciminhasenhaContainer
+
+   ],
+   mainAxisAlignment: MainAxisAlignment.start,);
+
+   var colunaLinha = Column(children:[linha,coluna],);
+  //appBar
+
+
+   //scaffold
+   var scaffold = Scaffold(appBar:appBar, body:colunaLinha ,);
+   //materialApp
+   var materialApp = MaterialApp(home: scaffold);
+
+    return materialApp;
+  }
+
+}

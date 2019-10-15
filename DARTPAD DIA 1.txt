@@ -1,0 +1,45 @@
+// //Exemplo 1
+// void main()
+// {
+//   String nome = "Fulano";
+//   int idade =  null;//toda variavel em dart é um objeto.
+  
+//   print('hello word $nome');//interlopação
+  
+// }
+
+
+class Pessoa
+{
+  //atributos
+  String nome;
+  int idade;
+  double salario;
+  
+//   //construtor
+//   Pessoa(String nome, int idade)
+//   {
+//     this.nome = nome; // escopo local
+//     this.idade = idade;
+//   }
+  Pessoa(this.nome, {this.idade=0, this.salario}); //colchete é uma opção opcional //pra varios itens
+  
+  //metodos:
+  String apresentar()
+  {
+    return 'Ola, sou $nome e tenho $idade anos e recebo ${salario.toStringAsFixed(2)} salario  todo mês';
+  }
+  
+ }
+
+//Método = ação 
+void main()
+{
+  //cria o objeto p (pessoa)
+  Pessoa p = new Pessoa('beltrano',salario:789.358478);//construtor 
+//   p.nome = "ciclano";
+//   p.idade = 42;
+  
+  print(p.apresentar());  //apresentar a 'String apresentar'
+  //print("${p.nome} tem ${p.idade} anos");
+}
